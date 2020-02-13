@@ -8,7 +8,7 @@ export default class SearchBar extends React.Component {
     };
 
     handleInputChange = (event) => {
-        
+        this.setState({ search: event.target.value });
 
     }
 
