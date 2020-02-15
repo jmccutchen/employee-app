@@ -5,24 +5,21 @@ import React from 'react';
 
 function TableData(props) {
 
+    
 
-    // need to loop through API object and get empolyees to render in table
     return (
 
-
-
-        <div>
-            <div className="img-container">
-                <img alt={props.name} src={props.thumbnail} />
-            </div>
-            <div> {props.name} </div>
-            <div> {props.phone} </div>
-            <div> {props.email} </div>
-            <div> {props.dob} </div>
-
-
-
-        </div>
+        <tbody>
+            <tr>
+                <td className="img-container">
+                    <img src={props.image} alt=" employeePicture" />
+                </td>
+                <td> {props.name} </td>
+                <td > {props.phone} </td>
+                <td > {props.email} </td>
+                <td > {props.dob} </td>
+            </tr>
+        </tbody>
 
     )
 }
