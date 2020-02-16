@@ -5,7 +5,7 @@ import React from 'react';
 
 function TableData(props) {
 
-    
+
 
     return (
 
@@ -17,7 +17,7 @@ function TableData(props) {
                 <td> {props.name} </td>
                 <td > {props.phone} </td>
                 <td > {props.email} </td>
-                <td > {props.dob} </td>
+                <td > {props.dob.substring(0,10)} </td>
             </tr>
         </tbody>
 

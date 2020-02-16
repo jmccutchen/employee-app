@@ -1,8 +1,6 @@
 import React from 'react';
 import {FaSort} from 'react-icons/fa';
 
-// import TableData from '../TableData';
-
 
 export default class TableHeader extends React.Component {
     
