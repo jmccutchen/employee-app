@@ -7,11 +7,17 @@ import TableArea from './components/TableArea';
 // import TableHeader from './components/TableHeader';
 import axios from 'axios';
 
+
 class App extends React.Component {
 
   state = {
-    employees: []
+    employees: [],
+    order: "desc"
+    
   }
+
+  
+
 
   componentDidMount = () => {
     this.renderEmployee()
@@ -20,26 +26,44 @@ class App extends React.Component {
   renderEmployee = () => {
     axios.get('https://randomuser.me/api/?results=50&nat=us')
       .then((response) => {
-        console.log(response.data.results)
-
+        
         this.setState(
-
           { employees: [...response.data.results] }
         )
       })
-
-
+      
   }
 
+  sortBy(){
+    console.log(this.state)
+    if(this.state.order === 'desc'){
+        this.state.employees.sort((a,b) => a.name.last > b.name.last ? 1: -1)
+        this.setState(
+            { order: 'asc' }
+          )
+          console.log(this.state.order, 'desc')
+        
+    } else {
+        this.state.employees.sort((a,b) => a.name.last < b.name.last ? 1: -1)
+        this.setState(
+            { order: 'desc' }
+            
+        )
+        console.log(this.state.order, 'asc')
+    }
+};
 
   render() {
+    
     return (
       <div>
         <PageHeader />
         <SearchBar />
-        <TableArea employees= {this.state.employees}>
-          
-        </TableArea>
+        <TableArea 
+          employees= {this.state.employees}
+          sortBy= {this.sortBy.bind(this)}
+          order = {this.state.order}
+          />
       </div>
 
 

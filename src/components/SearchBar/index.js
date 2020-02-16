@@ -2,10 +2,7 @@ import React from 'react';
 
 export default class SearchBar extends React.Component {
 
-    state = {
-        search: "",
-        employees: []
-    };
+    
 
     handleInputChange = (event) => {
         this.setState({ search: event.target.value });
@@ -19,15 +16,17 @@ export default class SearchBar extends React.Component {
     
     render() {
         return(
-            <div>
-                <form>
+            <div className="text-center mb-4">
+                <form >
                     <input 
                     handleInputChange={this.handleInputChange}
                     handleSubmit = {this.handleSubmit}
+                    placeholder="Search employee name"
+                    className= "p-2"
                     >
                     </input>
                     <button
-                    
+                    className= "p-2"
                     >
                         Submit
                     </button>
